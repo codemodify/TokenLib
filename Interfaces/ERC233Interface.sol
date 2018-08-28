@@ -3,9 +3,8 @@ pragma solidity ^0.4.24;
 interface ERC233Interface {
 
     // ~~~~ ~~~~ ~~~~ REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
-    // function payable() external;
 
-    function transfer(address to, uint256 value, bytes data ) external returns (bool);
+    function transfer(address to, uint256 value, bytes data ) public returns (bool);
 
 
     // ~~~~ ~~~~ ~~~~ REQUIRED Events ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
@@ -14,5 +13,5 @@ interface ERC233Interface {
 }
 
 interface ERC233TokenReceiverInterface {
-    function tokenFallback(address from, uint256 value, bytes data) external;
+    function tokenFallback(address from, uint256 value, bytes data) public;
 }

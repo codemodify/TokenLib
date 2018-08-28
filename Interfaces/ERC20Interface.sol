@@ -5,27 +5,27 @@ interface ERC20Interface {
     // ~~~~ ~~~~ ~~~~ OPTIONAL Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
 
     // Returns the name of the token
-    function name() external view returns (string);
+    function name() public view returns (string);
 
     // Returns the symbol of the token
-    function symbol() external view returns (string);
+    function symbol() public view returns (string);
 
     // Returns the number of decimals the token uses
-    function decimals() external view returns (uint8);
+    function decimals() public view returns (uint8);
 
 
     // ~~~~ ~~~~ ~~~~ REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
 
     // Returns the total token supply
-    function totalSupply() external view returns (uint256);
+    function totalSupply() public view returns (uint256);
 
     // Returns the account balance of `account`
-    function balanceOf(address account) external view returns (uint256);
+    function balanceOf(address account) public view returns (uint256);
 
     // Transfers `value` amount of tokens `to` address. MUST fire `Transfer` event.
     // SHOULD throw if `from` account balance does not have enough tokens to spend.
     // Transfers of 0 values MUST be treated as normal transfers and fire the `Transfer` event.
-    function transfer(address to, uint256 value) external returns (bool);
+    function transfer(address to, uint256 value) public returns (bool);
 
     // Transfers `value` amount of tokens `from` `to` addresses. MUST fire the `Transfer` event.
     //
@@ -36,7 +36,7 @@ interface ERC20Interface {
     // of the message via some mechanism.
     //
     // Transfers of 0 values MUST be treated as normal transfers and fire the `Transfer` event.
-    function transferFrom(address from, address to, uint256 value) external returns (bool);
+    function transferFrom(address from, address to, uint256 value) public returns (bool);
 
     // Allows `spender` to withdraw from your account multiple times, up to the `value` amount
     // If this function is called again it overwrites the current allowance with `value`.
@@ -46,10 +46,10 @@ interface ERC20Interface {
     // Sample attack vectors:
     //     https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM
     //     https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
-    function approve(address spender, uint256 value) external returns (bool);
+    function approve(address spender, uint256 value) public returns (bool);
 
     // Returns the amount which `spender` is still allowed to withdraw from `owner`
-    function allowance(address owner, address spender) external view returns (uint256);
+    function allowance(address owner, address spender) public view returns (uint256);
 
 
     // ~~~~ ~~~~ ~~~~ REQUIRED Events ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
