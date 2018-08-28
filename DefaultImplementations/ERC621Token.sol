@@ -1,12 +1,11 @@
 pragma solidity ^0.4.24;
 
-import "../Interfaces/ERC621Interface.sol";
+// import "../Interfaces/ERC621Interface.sol";
+// import "./ERC233Token.sol";
 
-import "./ERC233Token.sol";
+import "https://github.com/nic0lae/TokenLib/Interfaces/ERC621Interface.sol";
+import "https://github.com/nic0lae/TokenLib/DefaultImplementations/ERC233Token.sol";
 
-//
-// Spec, Credits and Inspirations
-//
 contract ERC621Token is ERC233Token, ERC621Interface {
 
     // ~~~~ ~~~~ ~~~~ ERC621Interface REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
