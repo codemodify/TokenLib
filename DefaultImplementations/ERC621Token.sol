@@ -41,14 +41,14 @@ contract ERC621Token is ERC233Token, ERC621Interface {
 
 
     // ~~~~ ~~~~ ~~~~ Helpers ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
-    function safeAdd(uint a, uint b) internal returns (uint) {
+    function safeAdd(uint a, uint b) internal pure returns (uint) {
         if (a + b < a) {
             revert("b can't be negative");
         }
         return a + b;
     }
 
-    function safeSub(uint a, uint b) internal returns (uint) {
+    function safeSub(uint a, uint b) internal pure returns (uint) {
         if (b > a) {
             revert("b can't be greater");
         }
