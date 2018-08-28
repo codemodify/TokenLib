@@ -13,5 +13,5 @@ interface ERC233Interface {
 }
 
 interface ERC233TokenReceiverInterface {
-    function tokenFallback(address from, uint256 value, bytes data) public;
+    function tokenFallback(address from, uint256 value, bytes data) external;
 }

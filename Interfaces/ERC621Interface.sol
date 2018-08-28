@@ -5,8 +5,8 @@ interface ERC621Interface {
     // ~~~~ ~~~~ ~~~~ REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
 
     // Increases total supply by minting new tokens and transferring them to a desired address
-    function increaseSupply(uint value, address to) public returns (bool);
+    function increaseSupply(uint value, address to) external returns (bool);
 
     // Decreases total supply by subtracting from desired address
-    function decreaseSupply(uint value, address from) public returns (bool);
+    function decreaseSupply(uint value, address from) external returns (bool);
 }
