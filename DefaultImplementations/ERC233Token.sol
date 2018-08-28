@@ -18,7 +18,7 @@ contract ERC233Token is ERC20Interface, ERC233Interface {
 
 
     // ~~~~ ~~~~ ~~~~ Init ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
-    constructor(string tokenName, string tokenSymbol, uint8 _tokenDecimals, uint totalSupply) public {
+    constructor(string tokenName, string tokenSymbol, uint8 tokenDecimals, uint totalSupply) public {
         _tokenName = tokenName;
         _tokenSymbol = tokenSymbol;
         _tokenDecimals = tokenDecimals;
@@ -96,7 +96,7 @@ contract ERC233Token is ERC20Interface, ERC233Interface {
             _balances[msg.sender] -= value;
             _balances[to] += value;
 
-            ERC233TokenReceiverInnterface tokenReceiver = ERC233TokenReceiverInterface(to);
+            ERC233TokenReceiverInterface tokenReceiver = ERC233TokenReceiverInterface(to);
             tokenReceiver.tokenFallback(msg.sender, value, data);
             emit Transfer(msg.sender, to, value, data);
 
@@ -109,7 +109,7 @@ contract ERC233Token is ERC20Interface, ERC233Interface {
     function isContract(address someAddress) private returns (bool) {
         uint length;
         assembly {
-            length := extcodesize(someAddress);
+            length := extcodesize(someAddress)
         }
         return (length > 0);
     }

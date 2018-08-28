@@ -1,11 +1,5 @@
 pragma solidity ^0.4.24;
 
-//
-// Spec, Credits and Inspirations
-//    - https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol
-//
-// SafeMath - Math operations with safety checks that revert on error
-//
 library SafeMath {
 
     // Multiplies two numbers, reverts on overflow.
