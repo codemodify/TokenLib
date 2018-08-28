@@ -1,12 +1,12 @@
 pragma solidity ^0.4.24;
 
-import "../Helpers/SafeMath.sol";
-import "../Interfaces/ERC20Interface.sol";
-import "../Interfaces/ERC233Interface.sol";
+// import "../Helpers/SafeMath.sol";
+// import "../Interfaces/ERC20Interface.sol";
+// import "../Interfaces/ERC233Interface.sol";
 
-// import "https://github.com/nic0lae/TokenLib/Helpers/SafeMath.sol";
-// import "https://github.com/nic0lae/TokenLib/Interfaces/ERC20Interface.sol";
-// import "https://github.com/nic0lae/TokenLib/Interfaces/ERC233Interface.sol";
+import "github.com/nic0lae/TokenLib/Helpers/SafeMath.sol";
+import "github.com/nic0lae/TokenLib/Interfaces/ERC20Interface.sol";
+import "github.com/nic0lae/TokenLib/Interfaces/ERC233Interface.sol";
 
 contract ERC233Token is ERC20Interface, ERC233Interface {
     using SafeMath for uint256;

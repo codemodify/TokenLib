@@ -5,7 +5,7 @@ import "./ERC233Token.sol";
 
 // import "github.com/nic0lae/TokenLib/Interfaces/ERC621Interface.sol";
 // import "github.com/nic0lae/TokenLib/DefaultImplementations/ERC233Token.sol";
- 
+
 contract ERC621Token is ERC233Token, ERC621Interface {
 
     // ~~~~ ~~~~ ~~~~ ERC621Interface REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
