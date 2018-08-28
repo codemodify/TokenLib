@@ -106,7 +106,7 @@ contract ERC233Token is ERC20Interface, ERC233Interface {
 
 
     // ~~~~ ~~~~ ~~~~ Helpers ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
-    function isContract(address someAddress) private returns (bool) {
+    function isContract(address someAddress) private view returns (bool) {
         uint length;
         assembly {
             length := extcodesize(someAddress)
