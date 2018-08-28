@@ -1,9 +1,5 @@
 pragma solidity ^0.4.24;
 
-//
-// Spec, Credits and Inspirations
-//    - https://github.com/ethereum/EIPs/pull/621
-//
 interface ERC621Interface {
 
     // ~~~~ ~~~~ ~~~~ REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~

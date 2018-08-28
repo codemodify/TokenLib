@@ -2,15 +2,12 @@ pragma solidity ^0.4.24;
 
 import "../Helpers/SafeMath.sol";
 import "../Interfaces/ERC20Interface.sol";
+import "../Interfaces/ERC233Interface.sol";
 
-//
-// Spec, Credits and Inspirations
-//        - https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/token/ERC20/StandardToken.sol
-//
-contract ERC20Token is ERC20Interface {
+contract ERC233Token is ERC20Interface, ERC233Interface {
     using SafeMath for uint256;
 
-    // ~~~~ ~~~~ ~~~~ House Keeping ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
+    // ~~~~ ~~~~ ~~~~ House Keeping ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
     string private _tokenName;
     string private _tokenSymbol;
     uint8 private _tokenDecimals;
@@ -18,6 +15,15 @@ contract ERC20Token is ERC20Interface {
     mapping (address => uint256) private _balances;
     mapping (address => mapping (address => uint256)) private _allowed;
     uint256 private _totalSupply;
+
+
+    // ~~~~ ~~~~ ~~~~ Init ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
+    constructor(string tokenName, string tokenSymbol, uint8 _tokenDecimals, uint totalSupply) public {
+        _tokenName = tokenName;
+        _tokenSymbol = tokenSymbol;
+        _tokenDecimals = tokenDecimals;
+        _totalSupply = totalSupply;
+    }
 
 
     // ~~~~ ~~~~ ~~~~ ERC20Interface OPTIONAL Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
@@ -35,7 +41,6 @@ contract ERC20Token is ERC20Interface {
 
 
     // ~~~~ ~~~~ ~~~~ ERC20Interface REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
-
     function totalSupply() public view returns (uint256) {
         return _totalSupply;
     }
@@ -83,6 +88,35 @@ contract ERC20Token is ERC20Interface {
     // ~~~~ ~~~~ ~~~~ ERC20Interface REQUIRED Events ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
 
     // INFO: Events don't require an implementation body
+
+
+    // ~~~~ ~~~~ ~~~~ ERC233Interface REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
+    function transfer(address to, uint256 value, bytes data ) public returns (bool) {
+        if (isContract(to)) {
+            _balances[msg.sender] -= value;
+            _balances[to] += value;
+
+            ERC233TokenReceiverInnterface tokenReceiver = ERC233TokenReceiverInterface(to);
+            tokenReceiver.tokenFallback(msg.sender, value, data);
+            emit Transfer(msg.sender, to, value, data);
+
+            return true;
+        }
+    }
+
+
+    // ~~~~ ~~~~ ~~~~ Helpers ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
+    function isContract(address someAddress) private returns (bool) {
+        uint length;
+        assembly {
+            length := extcodesize(someAddress);
+        }
+        return (length > 0);
+    }
+
+
+
+
 
 
     /**

@@ -1,14 +1,5 @@
 pragma solidity ^0.4.24;
 
-//
-// Spec, Credits and Inspirations
-//    - https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
-//    - https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/ERC20/StandardToken.sol
-//    - https://github.com/ConsenSys/Tokens/blob/master/contracts/eip20/EIP20.sol
-//
-// Implementation of adding the force to 0 before calling "approve" again:
-//    - https://github.com/Giveth/minime/blob/master/contracts/MiniMeToken.sol
-//
 interface ERC20Interface {
 
     // ~~~~ ~~~~ ~~~~ OPTIONAL Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
