@@ -1,12 +1,12 @@
 pragma solidity ^0.4.24;
 
-// import "../Helpers/SafeMath.sol";
-// import "../Interfaces/ERC20Interface.sol";
-// import "../Interfaces/ERC233Interface.sol";
+import "../Helpers/SafeMath.sol";
+import "../Interfaces/ERC20Interface.sol";
+import "../Interfaces/ERC233Interface.sol";
 
-import "https://github.com/nic0lae/TokenLib/Helpers/SafeMath.sol";
-import "https://github.com/nic0lae/TokenLib/Interfaces/ERC20Interface.sol";
-import "https://github.com/nic0lae/TokenLib/Interfaces/ERC233Interface.sol";
+// import "https://github.com/nic0lae/TokenLib/Helpers/SafeMath.sol";
+// import "https://github.com/nic0lae/TokenLib/Interfaces/ERC20Interface.sol";
+// import "https://github.com/nic0lae/TokenLib/Interfaces/ERC233Interface.sol";
 
 contract ERC233Token is ERC20Interface, ERC233Interface {
     using SafeMath for uint256;
@@ -116,6 +116,18 @@ contract ERC233Token is ERC20Interface, ERC233Interface {
             length := extcodesize(someAddress)
         }
         return (length > 0);
+    }
+
+    function setTotalSupply(uint256 value) internal {
+        _totalSupply = value;
+    }
+
+    function updateBalanceForAddress(address account, uint256 value) internal {
+        _balances[account] = value;
+    }
+
+    function getBalanceForAddress(address account) internal view returns(uint256) {
+        return _balances[account];
     }
 
 
