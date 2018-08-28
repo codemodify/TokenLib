@@ -22,7 +22,12 @@ contract ERC233Token is ERC20Interface, ERC233Interface {
 
 
     // ~~~~ ~~~~ ~~~~ Init ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
-    constructor(string tokenName, string tokenSymbol, uint8 tokenDecimals, uint totalSupply) public {
+    constructor(
+        string tokenName,
+        string tokenSymbol,
+        uint8 tokenDecimals,
+        uint totalSupply
+    ) public {
         _tokenName = tokenName;
         _tokenSymbol = tokenSymbol;
         _tokenDecimals = tokenDecimals;

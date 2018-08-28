@@ -1,12 +1,24 @@
 pragma solidity ^0.4.24;
 
-import "../Interfaces/ERC621Interface.sol";
-import "./ERC233Token.sol";
+// import "../Interfaces/ERC621Interface.sol";
+// import "./ERC233Token.sol";
 
-// import "github.com/nic0lae/TokenLib/Interfaces/ERC621Interface.sol";
-// import "github.com/nic0lae/TokenLib/DefaultImplementations/ERC233Token.sol";
+import "github.com/nic0lae/TokenLib/Interfaces/ERC621Interface.sol";
+import "github.com/nic0lae/TokenLib/DefaultImplementations/ERC233Token.sol";
 
 contract ERC621Token is ERC233Token, ERC621Interface {
+
+    constructor(
+        string tokenName,
+        string tokenSymbol,
+        uint8 tokenDecimals,
+        uint totalSupply
+    ) public ERC233Token(
+        tokenName, 
+        tokenSymbol, 
+        tokenDecimals, 
+        totalSupply
+    ) {}
 
     // ~~~~ ~~~~ ~~~~ ERC621Interface REQUIRED Methods ~~~~ ~~~~ ~~~~ ~~~~ ~~~~
     function increaseSupply(uint value, address to) public returns (bool) {
